@@ -1,0 +1,21 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+cd "$(git rev-parse --show-toplevel)/VerticalSlice"
+
+echo "🔍 Running dotnet format..."
+dotnet format VerticalSlice.sln --verify-no-changes
+FORMAT_RESULT=$?
+echo "dotnet format exit code: $FORMAT_RESULT"
+
+echo "🧪 Running dotnet build..."
+dotnet build VerticalSlice.sln -warnaserror
+BUILD_RESULT=$?
+echo "dotnet build exit code: $BUILD_RESULT"
+
+if [ "$FORMAT_RESULT" -ne 0 ] || [ "$BUILD_RESULT" -ne 0 ]; then
+  echo "❌ Pre-commit checks failed."
+  exit 1
+fi
+
+echo "✅ All checks passed!"
