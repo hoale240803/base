@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\VerticalSlice.Domain\VerticalSlice.Domain.csproj" />
+		<ProjectReference Include="..\VerticalSlice.SharedKernel\VerticalSlice.SharedKernel.csproj" />
+	</ItemGroup>
+</Project>

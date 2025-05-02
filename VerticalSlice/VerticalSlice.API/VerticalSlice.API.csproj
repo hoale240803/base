@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+
+
+	<!-- Packages -->
+	<ItemGroup>
+		<!-- Just reference the package, version comes from Directory.Packages.props -->
+		<PackageReference Include="Swashbuckle.AspNetCore" />
+	</ItemGroup>
+
+	<!-- References -->
+	<ItemGroup>
+		<ProjectReference Include="..\VerticalSlice.Application\VerticalSlice.Application.csproj" />
+		<ProjectReference Include="..\VerticalSlice.Infrastructure\VerticalSlice.Infrastructure.csproj" />
+		<ProjectReference Include="..\VerticalSlice.Domain\VerticalSlice.Domain.csproj" />
+		<ProjectReference Include="..\VerticalSlice.SharedKernel\VerticalSlice.SharedKernel.csproj" />
+	</ItemGroup>
+
+</Project>
