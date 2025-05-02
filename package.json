@@ -1,0 +1,24 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "│\r ├── Api/                     # ASP.NET Core API project\r │   ├── Program.cs\r │   ├── Endpoints/\r │   │   ├── Users/\r │   │   │   ├── CreateUser.cs       # Command + Handler\r │   │   │   ├── GetUserById.cs      # Query + Handler\r │   │   │   ├── Mapping.cs\r │   │   │   ├── Validator.cs\r │   │   │   └── UserEndpoints.cs    # Route Registration\r │   └── Middleware/\r │\r ├── Domain/                 # Entities, Enums, Value Objects\r │   └── User.cs\r │\r ├── Infrastructure/         # EF, Email, Redis, 3rd-party\r │   └── Data/\r │       ├── AppDbContext.cs\r │       └── Repository.cs\r │\r ├── Application/            # CQRS Handlers, Validators, DTOs\r │   └── Interfaces/\r │\r └── SharedKernel/           # Common types, errors, etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoale240803/base.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoale240803/base/issues"
+  },
+  "homepage": "https://github.com/hoale240803/base#readme",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
