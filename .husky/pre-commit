@@ -13,7 +13,18 @@ dotnet build VerticalSlice.sln -warnaserror
 BUILD_RESULT=$?
 echo "dotnet build exit code: $BUILD_RESULT"
 
-if [ "$FORMAT_RESULT" -ne 0 ] || [ "$BUILD_RESULT" -ne 0 ]; then
+echo "🧪 Running unit tests..."
+dotnet test VerticalSlice.sln
+TEST_RESULT=$?
+echo "dotnet test exit code: $TEST_RESULT"
+
+# Validate commit message convention
+echo "📝 Validating commit message convention..."
+npx commitlint --edit
+COMMITLINT_RESULT=$?
+echo "commitlint exit code: $COMMITLINT_RESULT"
+
+if [ "$FORMAT_RESULT" -ne 0 ] || [ "$BUILD_RESULT" -ne 0 ] || [ "$TEST_RESULT" -ne 0 ] || [ "$COMMITLINT_RESULT" -ne 0 ]; then
   echo "❌ Pre-commit checks failed."
   exit 1
 fi
