@@ -1,4 +1,15 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+echo "📝 Validating commit message convention..."
+COMMIT_MSG=$(cat "$1") # The commit message file is passed as the first argument ($1)
+echo "Commit message content:"
+echo "$COMMIT_MSG"
+echo "-------------------"
+echo "$COMMIT_MSG" | npx commitlint
+COMMITLINT_RESULT=$?
+echo "commitlint exit code: $COMMITLINT_RESULT"
 
-npx --no-install commitlint --edit "$1"
+if [ "$COMMITLINT_RESULT" -ne 0 ]; then
+    echo "❌ Commit message validation failed."
+    exit 1
+fi
+
+echo "✅ Commit message validation passed!"

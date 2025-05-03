@@ -1,5 +1,3 @@
-#!/bin/sh
-
 cd "$(git rev-parse --show-toplevel)/VerticalSlice"
 
 echo "🔍 Running dotnet format..."
@@ -17,19 +15,7 @@ dotnet test VerticalSlice.sln
 TEST_RESULT=$?
 echo "dotnet test exit code: $TEST_RESULT"
 
-# Validate commit message convention
-echo "📝 Validating commit message convention..."
-COMMIT_MSG=$(cat "$(git rev-parse --git-dir)/COMMIT_EDITMSG")
-echo "Commit message content:"
-echo "$COMMIT_MSG"
-echo "-------------------"
-echo "$COMMIT_MSG" | npx commitlint
-COMMITLINT_RESULT=$?
-echo "commitlint exit code: $COMMITLINT_RESULT"
-
-if [ "$FORMAT_RESULT" -ne 0 ] || [ "$BUILD_RESULT" -ne 0 ] || [ "$TEST_RESULT" -ne 0 ] || [ "$COMMITLINT_RESULT" -ne 0 ]; then
-  echo "❌ Pre-commit checks failed."
-  exit 1
+if [ "$FORMAT_RESULT" -ne 0 ] || [ "$BUILD_RESULT" -ne 0 ] || [ "$TEST_RESULT" -ne 0 ]; then
+    echo "❌ Pre-commit checks failed."
+    exit 1
 fi
-
-echo "✅ All checks passed!"
