@@ -8,7 +8,7 @@ dotnet format VerticalSlice.sln --verify-no-changes
 FORMAT_RESULT=$?
 echo "dotnet format exit code: $FORMAT_RESULT"
 
-echo "🧪 Running dotnet build..."
+echo "🏗️ Running dotnet build..."
 dotnet build VerticalSlice.sln -warnaserror
 BUILD_RESULT=$?
 echo "dotnet build exit code: $BUILD_RESULT"
