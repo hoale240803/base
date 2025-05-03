@@ -1,5 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
 cd "$(git rev-parse --show-toplevel)/VerticalSlice"
 
@@ -20,7 +19,11 @@ echo "dotnet test exit code: $TEST_RESULT"
 
 # Validate commit message convention
 echo "📝 Validating commit message convention..."
-npx commitlint --edit
+COMMIT_MSG=$(cat "$(git rev-parse --git-dir)/COMMIT_EDITMSG")
+echo "Commit message content:"
+echo "$COMMIT_MSG"
+echo "-------------------"
+echo "$COMMIT_MSG" | npx commitlint
 COMMITLINT_RESULT=$?
 echo "commitlint exit code: $COMMITLINT_RESULT"
 
