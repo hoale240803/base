@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/hoale240803/base#readme",
   "devDependencies": {
-    "husky": "^9.1.7",
-    "@commitlint/cli": "^18.0.0",
-    "@commitlint/config-conventional": "^18.0.0"
+    "@commitlint/cli": "^18.6.1",
+    "husky": "^9.1.7"
   }
 }

@@ -1,9 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Using Include="Xunit" />
+		<PackageReference Include="coverlet.collector" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.runner.visualstudio" />
+		<PackageReference Include="Moq" />
+	</ItemGroup>
+	
+	
+
+	<ItemGroup>
+	  <ProjectReference Include="..\VerticalSlice.API\VerticalSlice.API.csproj" />
+	  <ProjectReference Include="..\VerticalSlice.Application\VerticalSlice.Application.csproj" />
+	  <ProjectReference Include="..\VerticalSlice.Domain\VerticalSlice.Domain.csproj" />
+	  <ProjectReference Include="..\VerticalSlice.Infrastructure\VerticalSlice.Infrastructure.csproj" />
+	  <ProjectReference Include="..\VerticalSlice.SharedKernel\VerticalSlice.SharedKernel.csproj" />
+	</ItemGroup>
 
 </Project>

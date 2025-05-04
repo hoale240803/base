@@ -3,14 +3,13 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
 	</PropertyGroup>
-
 
 	<!-- Packages -->
 	<ItemGroup>
 		<!-- Just reference the package, version comes from Directory.Packages.props -->
 		<PackageReference Include="Swashbuckle.AspNetCore" />
+		<PackageReference Include="FluentValidation" />
 	</ItemGroup>
 
 	<!-- References -->
