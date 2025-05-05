@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System.Diagnostics.CodeAnalysis;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace VerticalSlice.API.Controllers
@@ -39,6 +40,7 @@ namespace VerticalSlice.API.Controllers
     {
         private readonly IUserRepository _userRepository;
 
+        [ExcludeFromCodeCoverage]
         public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
